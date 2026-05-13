@@ -27,4 +27,6 @@ public:
     void printWaitingPlayers();
 
     // Outros métodos auxiliares, se necessário
+    void mergeAux(int l, int r);
+    void merge(int l, int m, int r);
 };
