@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Player.hpp"
 
 const int MAX_PLAYERS = 100000;

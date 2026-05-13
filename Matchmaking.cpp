@@ -2,9 +2,14 @@
 
 Matchmaking::Matchmaking() {
     size = 0;
-};
 
-Matchmaking::~Matchmaking() {};
+    for(int i = 0; i < MAX_PLAYERS; i++) {
+        players[i] = Player();
+    }
+
+}
+
+Matchmaking::~Matchmaking() {}
 
 bool Matchmaking::insert(Player player) {
     if (size < MAX_PLAYERS) {
