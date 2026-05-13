@@ -124,7 +124,56 @@ void Matchmaking::sortByScoreMerge()
     }
 }
 
+bool Matchmaking::removeInterval(int start, int end) {
+    if(end >= size) {
+        return false;
+    }
+
+    int elementsToRemove = end - start + 1;
+    int elementsToShift = size - end - 1;
+    
+    // Desloca os elementos após 'end' para a posição 'start'
+    for (int i = 0; i < elementsToShift; i++) {
+        players[start + i] = players[end + 1 + i];
+    }
+    
+    size -= elementsToRemove;
+    return true;
+}
+
 Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {
+    int head = 0;
+    int tail = groupSize - 1;
+
+    // Procura por um grupo de jogadore consecutivos dentro do delta
+    while(tail < size) {
+        if(players[tail].getScore() - players[head].getScore() <= delta) {
+            break;
+        }
+
+        head++;
+        tail++;
+    }
+
+    // Não encontrou um grupo
+    if(tail >= size) {
+        *n = 0;
+        return nullptr;
+    }
+
+    *n = groupSize;
+
+    // Copia os players do grupo para um array, enquanto
+    // elimina-os da lista de espera
+    Player* group = new Player[groupSize];
+
+    for(int i = head; i <= tail; i++) {
+        group[i - head] = players[i];
+    }
+
+    removeInterval(head, tail);
+
+    return group;
 }
 
 Player* Matchmaking::getWaitingPlayers(int* n) {

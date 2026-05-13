@@ -16,6 +16,7 @@ public:
 
     bool insert(Player player);
     bool removePlayer(int id);
+    bool removeInterval(int start, int end);
 
     void sortByScoreInsertion();
     void sortByScoreMerge();
