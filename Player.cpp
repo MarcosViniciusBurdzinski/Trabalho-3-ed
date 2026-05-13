@@ -1,7 +1,11 @@
 #include "Player.hpp"
 
-Player::Player() {};
-Player::Player(int id, std::string name, int score, int timestamp) {};
+Player::Player()
+    : id(0), name(""), score(0), timestamp(0) {}
+
+Player::Player(int id, std::string name, int score, int timestamp)
+    : id(id), name(name), score(score), timestamp(timestamp) {}
+
 Player::~Player() {};
 
 int Player::getId() { return id; };

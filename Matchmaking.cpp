@@ -1,8 +1,22 @@
 #include "Matchmaking.hpp"
 
-Matchmaking::Matchmaking() {};
+Matchmaking::Matchmaking() {
+    size = 0;
+};
+
 Matchmaking::~Matchmaking() {};
-bool Matchmaking::insert(Player player) {};
+
+bool Matchmaking::insert(Player player) {
+    if (size < MAX_PLAYERS) {
+        players[size] = player;
+        size++;
+        return true;
+    }
+
+    return false;
+};
+
+// Busca binária pelos id's (Custo O(log(100000)))
 bool Matchmaking::removePlayer(int id) {};
 void Matchmaking::sortByScoreInsertion() {};
 void Matchmaking::sortByScoreMerge() {};
