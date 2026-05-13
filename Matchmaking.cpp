@@ -1,13 +1,6 @@
 #include "Matchmaking.hpp"
 
-Matchmaking::Matchmaking() {
-    size = 0;
-
-    for(int i = 0; i < MAX_PLAYERS; i++) {
-        players[i] = Player();
-    }
-
-}
+Matchmaking::Matchmaking() : size(0) {}
 
 Matchmaking::~Matchmaking() {}
 
