@@ -12,10 +12,10 @@ bool Matchmaking::insert(Player player) {
     }
 
     return false;
-};
+}
 
-bool Matchmaking::removePlayer(int id) {
-
+bool Matchmaking::removePlayer(int id) 
+{
     int i = 0;
 
     // Percorre a lista em busca de um player com tal id
@@ -37,7 +37,7 @@ bool Matchmaking::removePlayer(int id) {
 
     size--;
     return true;
-};
+}
 
 void Matchmaking::sortByScoreInsertion() {
     int i, j, score;
@@ -57,9 +57,9 @@ void Matchmaking::sortByScoreInsertion() {
     }
 }
 
-void Matchmaking::sortByScoreMerge() {};
-Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {};
-Player* Matchmaking::getWaitingPlayers(int* n) {};
+void Matchmaking::sortByScoreMerge() {}
+Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {}
+Player* Matchmaking::getWaitingPlayers(int* n) {}
 
 void Matchmaking::printWaitingPlayers() {
 
