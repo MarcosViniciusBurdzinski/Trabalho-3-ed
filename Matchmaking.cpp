@@ -48,7 +48,9 @@ void Matchmaking::sortByScoreInsertion() {
         score = curr.getScore();
         j = i - 1;
 
-        while(j >= 0 && players[j].getScore() > score) {
+        while(j >= 0 && (players[j].getScore() > score || 
+                        (players[j].getScore() == curr.getScore() && players[j].getTimestamp() > curr.getTimestamp()))) {
+
             players[j + 1] = players[j];
             j--;
         }
