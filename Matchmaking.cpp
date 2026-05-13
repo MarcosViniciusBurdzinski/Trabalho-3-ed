@@ -46,7 +46,24 @@ bool Matchmaking::removePlayer(int id) {
     return true;
 };
 
-void Matchmaking::sortByScoreInsertion() {};
+void Matchmaking::sortByScoreInsertion() {
+    int i, j, score;
+    Player curr;
+
+    for(i = 1; i < size; i++) {
+        curr = players[i];
+        score = curr.getScore();
+        j = i - 1;
+
+        while(j >= 0 && players[j].getScore() > score) {
+            players[j + 1] = players[j];
+            j--;
+        }
+
+        players[j + 1] = curr;
+    }
+}
+
 void Matchmaking::sortByScoreMerge() {};
 Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {};
 Player* Matchmaking::getWaitingPlayers(int* n) {};
