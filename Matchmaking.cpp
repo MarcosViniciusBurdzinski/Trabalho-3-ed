@@ -124,8 +124,23 @@ void Matchmaking::sortByScoreMerge()
     }
 }
 
-Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {}
-Player* Matchmaking::getWaitingPlayers(int* n) {}
+Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {
+}
+
+Player* Matchmaking::getWaitingPlayers(int* n) {
+    *n = size;
+
+    if(size == 0) {
+        return nullptr;
+    }
+
+    Player* wp = new Player[size];
+    for(int i = 0; i < size; i++) {
+        wp[i] = players[i];
+    }
+
+    return wp;
+}
 
 void Matchmaking::printWaitingPlayers() {
 
