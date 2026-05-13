@@ -1,6 +1,13 @@
 #include "Matchmaking.hpp"
 
-Matchmaking::Matchmaking() : size(0) {}
+Matchmaking::Matchmaking() {
+    size = 0;
+
+    for(int i = 0; i < MAX_PLAYERS; i++) {
+        players[i] = Player();
+    }
+
+}
 
 Matchmaking::~Matchmaking() {}
 
@@ -43,4 +50,22 @@ void Matchmaking::sortByScoreInsertion() {};
 void Matchmaking::sortByScoreMerge() {};
 Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {};
 Player* Matchmaking::getWaitingPlayers(int* n) {};
-void Matchmaking::printWaitingPlayers() {};
+
+void Matchmaking::printWaitingPlayers() {
+
+    if(size == 0) {
+        std::cout << "(empty)\n";
+        return;
+    }
+
+    std::cout << "Waiting players:\n";
+    for(int i = 0; i < size; i++) {
+
+        int id = players[i].getId();
+        std::string n = players[i].getName();
+        int s = players[i].getScore();
+        int t = players[i].getTimestamp();
+
+        std::cout << "[" << id << " | " << n << " | " << s << " | " << t << "]\n";
+    }
+}
