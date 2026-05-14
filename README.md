@@ -16,15 +16,18 @@ Este projeto implementa um sistema de Matchmaking para o pareamento de grupos de
 ### Instruções de compilação
 
 O main pode ser executado com uma única linha de código:
->>> g++ main.cpp Matchmaking.cpp Player.cpp -o matchmaking
->>> ./matchmaking
-
-Ou da forma menos enxuta, porém ainda funcional:
->>> g++ -c Player.cpp -o Player.o
->>> g++ -c Matchmaking.cpp -o Matchmaking.o
->>> g++ -c main.cpp -o main.o
->>> g++ Matchmaking.o Player.o main.o -o matchmaking
->>> ./matchmaking
+``` bash
+g++ main.cpp Matchmaking.cpp Player.cpp -o matchmaking
+./matchmaking
+```
+Ou da forma menos enxuta, porém ainda funcional: 
+``` bash
+g++ -c Player.cpp -o Player.o
+g++ -c Matchmaking.cpp -o Matchmaking.o
+g++ -c main.cpp -o main.o
+g++ Matchmaking.o Player.o main.o -o matchmaking
+./matchmaking
+```
 
 ### Organização do projeto
 
@@ -42,11 +45,13 @@ Driver code que demonstra o funcionamento do programa. Simula um matchmaking de 
 ### Como executar os testes
 
 Para demonstrar o funcionamento do programa, o main.cpp contém um exemplo real de um matchmaking de xadrez e outro de damas. Simulando uma situação real onde jogadores entram e saem da fila de espera, são pareados e jogam, vários testes em sequência são executados. Dado as instruções de compilação, execute o programa:
->>> ./matchmaking
-
+``` bash 
+./matchmaking
+```
 Para cada teste a ser realizado, temos a mensagem:
+``` bash
 Deseja prosseguir?
 Sim (1) \\ Não (0)
 Sua resposta:
-
+```
 Digitando 1, você parte para o próximo teste. Digitando 0, você finaliza o programa. Para ter a experiência completa, prossiga até o final. 
