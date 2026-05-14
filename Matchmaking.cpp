@@ -1,9 +1,11 @@
 #include "Matchmaking.hpp"
 
+// Questão 1
 Matchmaking::Matchmaking() : size(0) {}
 
 Matchmaking::~Matchmaking() {}
 
+// Questão 2
 bool Matchmaking::insert(Player player) {
     if (size < MAX_PLAYERS) {
         players[size] = player;
@@ -14,6 +16,7 @@ bool Matchmaking::insert(Player player) {
     return false;
 }
 
+// Questão 3
 bool Matchmaking::removePlayer(int id) 
 {
     int i = 0;
@@ -39,6 +42,7 @@ bool Matchmaking::removePlayer(int id)
     return true;
 }
 
+// Questão 4
 void Matchmaking::sortByScoreInsertion() {
     int i, j, score;
     Player curr;
@@ -124,6 +128,7 @@ void Matchmaking::sortByScoreMerge()
     }
 }
 
+// Questão 5
 bool Matchmaking::removeInterval(int start, int end) {
     if(end >= size) {
         return false;
@@ -176,6 +181,7 @@ Player* Matchmaking::formGroup(int groupSize, int delta, int* n) {
     return group;
 }
 
+// Questão 6
 Player* Matchmaking::getWaitingPlayers(int* n) {
     *n = size;
 
@@ -191,10 +197,11 @@ Player* Matchmaking::getWaitingPlayers(int* n) {
     return wp;
 }
 
+// Questão 7
 void Matchmaking::printWaitingPlayers() {
 
     if(size == 0) {
-        std::cout << "(empty)\n";
+        std::cout << "(empty)\n\n";
         return;
     }
 
@@ -208,4 +215,5 @@ void Matchmaking::printWaitingPlayers() {
 
         std::cout << "[" << id << " | " << n << " | " << s << " | " << t << "]\n";
     }
+    std::cout << "\n";
 }

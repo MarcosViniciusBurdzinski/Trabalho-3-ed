@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-const int MAX_PLAYERS = 100000;
+const int MAX_PLAYERS = 100;
 
 class Matchmaking {
 
@@ -27,7 +27,6 @@ public:
 
     void printWaitingPlayers();
 
-    // Outros métodos auxiliares, se necessário
     void mergeAux(int l, int r);
     void merge(int l, int m, int r);
 };

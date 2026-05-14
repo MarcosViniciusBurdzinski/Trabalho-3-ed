@@ -20,3 +20,7 @@ int Player::getId() { return id; };
 std::string Player::getName() { return name; };
 int Player::getScore() { return score; };
 int Player::getTimestamp() { return timestamp; };
+
+void Player::print() {
+  std::cout << "[" << id << " | " << name << " | " << score << " | " << timestamp << "]\n";
+}

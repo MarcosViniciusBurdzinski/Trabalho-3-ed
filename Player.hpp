@@ -19,4 +19,5 @@ public:
     std::string getName();
     int getScore();
     int getTimestamp();
+    void print();
 };
