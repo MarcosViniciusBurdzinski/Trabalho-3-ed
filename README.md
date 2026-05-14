@@ -1,9 +1,9 @@
 # Lista 3 da disciplina de Estrutura de dados
 
-# Autores
+## Autores
 Marcos Vinicius Burdzinski e Pedro Henrique de Abreu Duailibe
 
-### Descrição
+## Descrição
 
 Este projeto implementa um sistema de Matchmaking para o pareamento de grupos de jogadores com base no score. O sistema mantém uma lista de espera e tem as seguintes funcionalidades:
 
@@ -13,7 +13,7 @@ Este projeto implementa um sistema de Matchmaking para o pareamento de grupos de
 - Exibe os jogadores na lista de espera
 - Permite fazer uma cópia dos jogadores na lista de espera
 
-### Instruções de compilação
+## Instruções de compilação
 
 O main pode ser executado com uma única linha de código:
 ``` bash
@@ -29,20 +29,20 @@ g++ Matchmaking.o Player.o main.o -o matchmaking
 ./matchmaking
 ```
 
-### Organização do projeto
+## Organização do projeto
 
 O projeto foi modularizado de forma a dividi-lo em partes menores, cada uma com seu propósito, facilitando o entendimento e extensão do código:
 
-# Player.hpp 
+### Player.hpp 
 Define a classe Player, seus atributos e métodos, enquanto o Player.cpp implementa tais métodos. 
 
-# Matchmaking.hpp
+### Matchmaking.hpp
 Estrutura o sistema de matchmaking para o pareamento de players com habilidades semelhantes para jogarem, enquanto o Matchmaking.cpp contém a implementação das funcionalidades.
 
-# main.cpp
+### main.cpp
 Driver code que demonstra o funcionamento do programa. Simula um matchmaking de damas e outro de xadrez, fazendo vários testes, como inserir, remover, parear, exibir jogadores.
 
-### Como executar os testes
+## Como executar os testes
 
 Para demonstrar o funcionamento do programa, o main.cpp contém um exemplo real de um matchmaking de xadrez e outro de damas. Simulando uma situação real onde jogadores entram e saem da fila de espera, são pareados e jogam, vários testes em sequência são executados. Dado as instruções de compilação, execute o programa:
 ``` bash 
