@@ -201,7 +201,7 @@ Player* Matchmaking::getWaitingPlayers(int* n) {
 void Matchmaking::printWaitingPlayers() {
 
     if(size == 0) {
-        std::cout << "(empty)\n\n";
+        std::cout << "(empty)\n";
         return;
     }
 
@@ -215,5 +215,4 @@ void Matchmaking::printWaitingPlayers() {
 
         std::cout << "[" << id << " | " << n << " | " << s << " | " << t << "]\n";
     }
-    std::cout << "\n";
 }

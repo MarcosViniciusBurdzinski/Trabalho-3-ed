@@ -2,7 +2,16 @@
 
 int main() {
     int n = 0;
+    int verificador = 0;
 
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Este é um arquivo que realiza diversos testes ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        return 0;
+    }
     // Criando o matchmaking. Tema: Xadrez e Damas
     std::cout << "\n#____# Criando o matchmaking. Tema: Xadrez e Damas #____#\n\n";
     std::cout << "Matchmaking xadrez;\nMatchmaking damas;\n\n";
@@ -32,33 +41,62 @@ int main() {
 
     // Mostrando os jogadores
     std::cout << "#____# Exibindo os jogadores de xadrez #____#\n";
+    std::cout << "xadrez.printWaitingPlayers();\n\n";
     xadrez.printWaitingPlayers();
-    std::cout << "#____# Exibindo os jogadores de damas #____#\n";
+    std::cout << "\n#____# Exibindo os jogadores de damas #____#\n";
+    std::cout << "damas.printWaitingPlayers();\n\n";
     damas.printWaitingPlayers();
 
     // Removendo um jogador: encontrou e não encontrou
-    std::cout << "#____# Removendo um jogador existente do xadrez #____#\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 2: Remoção de jogadores ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        return 0;
+    }
+
+    std::cout << "\n#____# Removendo um jogador existente do xadrez #____#\n";
     std::cout << "xadrez.removePlayer(2);\n\n";
     xadrez.removePlayer(2);
     xadrez.printWaitingPlayers();
 
-    std::cout << "#____# Tentando remover um jogador não existente em damas #____#\n";
+    std::cout << "\n#____# Tentando remover um jogador não existente em damas #____#\n";
     std::cout << "damas.removerPlayer(0);\n\n";
     damas.removePlayer(0);
     damas.printWaitingPlayers();
 
     // Ordenando xadrez e damas com, respectivamente, merge e inserction
-    std::cout << "#____# Ordenando xadrez e damas com, respectivamente, merge e inserction #____#\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 3: Ordenação de jogadores ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        return 0;
+    }
+
+    std::cout << "\n#____# Ordenando xadrez e damas com, respectivamente, merge e inserction #____#\n";
     std::cout << "xadrez.sortByScoreMerge();\n\n";
     xadrez.sortByScoreMerge();
     xadrez.printWaitingPlayers();
 
-    std::cout << "damas.sortByScoreInserction();\n\n";
+    std::cout << "\ndamas.sortByScoreInserction();\n\n";
     damas.sortByScoreInsertion();
     damas.printWaitingPlayers();
 
     // Formando um grupo: Deu certo
-    std::cout << "#____# Pareando dois jogadores de xadrez #____#\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 4: Formando um grupo ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        return 0;
+    }
+
+    std::cout << "\n#____# Pareando dois jogadores de xadrez #____#\n";
     std::cout << "Player* p = xadrez.formGroup(3, 30, &n);\n\n";
     Player* p = xadrez.formGroup(2, 30, &n);
 
@@ -67,17 +105,37 @@ int main() {
     p[0].print();
     std::cout << "De pretas: ";
     p[1].print();
-    std::cout << "\n";
 
     // Tentando parear um grupo
-    std::cout << "#____# Tentando parear dois jogadores de xadrez #____#\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 4.1: Tentativa falha de formar um grupo ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        delete[] p;
+        return 0;
+    }
+
+    std::cout << "\n#____# Tentando parear dois jogadores de xadrez #____#\n";
     std::cout << "Player* r = xadrez.formGroup(2, 30, &n);\n\n";
     Player* r = xadrez.formGroup(2, 30, &n);
     std::cout << "Erro! Diferença muito grande entre os scores:\n";
     xadrez.printWaitingPlayers();
 
     // Pareando todos os jogadores
-    std::cout << "#____# Pareando os 3 jogadores de damas #____#\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 4.2: Pareando todos os jogadores da lista de espera ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        delete[] p;
+        delete[] r;
+        return 0;
+    }
+
+    std::cout << "\n#____# Pareando os 3 jogadores de damas #____#\n";
     std::cout << "(Não me pergunte como eles jogarão damas em trio)\n";
     std::cout << "Player* q = damas.formGroup(3, 100, &n);\n\n";
     Player* q = damas.formGroup(3, 100, &n);
@@ -89,17 +147,42 @@ int main() {
     q[1].print();
     std::cout << "De ????: ";
     q[2].print();
-    std::cout << "\n";
 
     // Tentando parear sem jogadores na lista de espera
-    std::cout << "Seja lá o que aconteceu nas damas em trio, vamos tentar parear uma\n";
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 4.3: Tentando parear sem jogadores na lista de espera ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        delete[] p;
+        delete[] q;
+        delete[] r;
+        return 0;
+    }
+
+    std::cout << "\nSeja lá o que aconteceu nas damas em trio, vamos tentar parear uma\n";
     std::cout << "nova partida, agora entre 2 jogadores:\n";
     std::cout << "Player* s = damas.formGroup(2, 50, &n);\n\n";
     Player* s = damas.formGroup(2, 50, &n);
     std::cout << "Erro, não há ninguém na lista de espera:\n\n";
     damas.printWaitingPlayers();
 
-    std::cout << "#____# getWaintingPlayers #____#\n";
+    // Método getWaitingPlayers
+    std::cout << "\n=====================================\n";
+    std::cout << "\n### Seção 5: Recuperando jogadores com getWaitingPlayers ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+    if(verificador == 0) {
+        delete[] p;
+        delete[] q;
+        delete[] r;
+        delete[] s; 
+        return 0;
+    }
+
+    std::cout << "\n#____# getWaintingPlayers #____#\n";
     std::cout << "Antes de ir embora, vamos ver os jogadores de xadrez\n";
     std::cout << "que ficarão esperando para ser pareados:\n";
     std::cout << "Player* t = xadrez.getWaitingPlayers();\n\n";
