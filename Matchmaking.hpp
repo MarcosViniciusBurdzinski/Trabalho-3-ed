@@ -20,6 +20,10 @@ public:
 
     void sortByScoreInsertion();
     void sortByScoreMerge();
+    
+    // Auxiliares para o Merge Sort
+    void mergeAux(int l, int r);
+    void merge(int l, int m, int r);
 
     Player* formGroup(int groupSize, int delta, int* n);
 
@@ -27,6 +31,4 @@ public:
 
     void printWaitingPlayers();
 
-    void mergeAux(int l, int r);
-    void merge(int l, int m, int r);
 };
