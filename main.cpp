@@ -1,4 +1,32 @@
 #include "Matchmaking.hpp"
+#include <chrono>
+
+void realizarBenchmark(int n) {
+    Matchmaking mInsertion;
+    Matchmaking mMerge;
+
+    for (int i = 0; i < n; i++) {
+        Player p(i, "Player" + std::to_string(i), 1000 - i, i);
+        mInsertion.insert(p);
+        mMerge.insert(p);
+    }
+
+    std::cout << "Testando N = " << n << "\n";
+
+    auto start = std::chrono::high_resolution_clock::now();
+    mInsertion.sortByScoreInsertion();
+    auto end = std::chrono::high_resolution_clock::now();
+    auto durationInsertion = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+
+    start = std::chrono::high_resolution_clock::now();
+    mMerge.sortByScoreMerge();
+    end = std::chrono::high_resolution_clock::now();
+    auto durationMerge = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+
+    std::cout << "  - Insertion Sort: " << durationInsertion << " us\n";
+    std::cout << "  - Merge Sort:     " << durationMerge << " us\n";
+    std::cout << "-------------------------------------\n";
+}
 
 int main() {
     int n = 0;
@@ -190,6 +218,25 @@ int main() {
     for(int i = 0; i < n; i++) {
         t[i].print();
     }
+    std::cout << "\n=====================================\n";
+    std::cout << "### Seção 6: Comparação de Desempenho (N até 1000) ###\n";
+    std::cout << "Deseja prosseguir?\n";
+    std::cout << "Sim (1) \\\\ Não (0)\nSua resposta: ";
+    std::cin >> verificador;
+
+    if (verificador == 1) {
+        std::cout << "\nIniciando testes de tempo (microssegundos)...\n";
+        std::cout << "Gerando arrays em ordem decrescente (pior caso).\n\n";
+
+        int tamanhos[] = {10, 50, 100, 500, 1000};
+
+        for (int n : tamanhos) {
+            realizarBenchmark(n);
+        }
+
+        std::cout << "Teste de benchmark concluído!\n";
+    }
+
     std::cout << "\nÉ isso, espero que tenha gostado!\n";
 
     delete[] p;

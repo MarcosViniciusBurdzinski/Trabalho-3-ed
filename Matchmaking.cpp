@@ -112,7 +112,7 @@ void Matchmaking::merge(int left, int m, int right)
 void Matchmaking::mergeAux(int left, int right)
 {
   if (left < right) {
-    int m = left + (right - left) / 2;
+    int m = left + (right - left) / 2; // evitar erros de arredondamento
 
     mergeAux(left, m);
     mergeAux(m + 1, right);
